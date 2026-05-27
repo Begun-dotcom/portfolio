@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-sushi-primary: #000000;
+  --color-sushi-accent: #F59E0B;
+  --color-sushi-accent-light: #FCD34D;
+  --color-sushi-dark: #1A1A1A;
+  --color-sushi-text-light: #D1D5DB;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #111827;
+  font-family: 'Montserrat', sans-serif;
+}
+
