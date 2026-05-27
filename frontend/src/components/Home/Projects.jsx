@@ -13,7 +13,7 @@ function Projects() {
       description: 'Одностраничный сайт-визитка для презентации навыков и проектов.',
       stack: ['React', 'Tailwind'],
       image: '/flower_main.jpeg',
-      demo: 'http://localhost:5173/projects/shop',
+      demo: '/projects/shop',
       github: null,
     },
     {
@@ -22,7 +22,7 @@ function Projects() {
       description: 'Интернет-магазин автозапчастей. Каталог товаров, админ-панель, деплой на сервер с Docker и Nginx, HTTPS.',
       stack: ['React', 'Tailwind', 'FastAPI', 'PostgreSQL', 'Docker', 'Nginx'],
       image: '/service_main.webp',
-      demo: 'https://продеталь70.рф',
+      demo: '/продеталь70.рф',
       github: null, // или ссылка на GitHub
     },
     
@@ -32,7 +32,7 @@ function Projects() {
       description: 'Одностраничный сайт-визитка для презентации навыков и проектов.',
       stack: ['React', 'Tailwind'],
       image:'/resn.jpg',
-      demo: 'http://localhost:5173/projects/lashes',
+      demo: '/projects/lashes',
       github: null,
     },
     
@@ -42,7 +42,7 @@ function Projects() {
       description: 'Одностраничный сайт-визитка для презентации навыков и проектов.',
       stack: ['React', 'Tailwind'],
       image: '/sushi.webp',
-      demo: 'http://localhost:5173/projects/sushi',
+      demo: '/projects/sushi',
       github: null,
     },
     
@@ -52,7 +52,7 @@ function Projects() {
       description: 'Одностраничный сайт-визитка для презентации навыков и проектов.',
       stack: ['React', 'Tailwind'],
       image: '/main_page.jpeg',
-      demo: 'http://localhost:5173',
+      demo: '/',
       github: null,
     },
     // Добавь ещё проекты если есть
