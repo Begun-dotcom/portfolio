@@ -75,11 +75,11 @@ function Contacts() {
           </p>
           <div className='flex flex-col sm:flex-row gap-3 justify-center'>
             <a 
-              href='mailto:sorokin88.dev@yandex.ru'
+              href='https://max.ru/u/f9LHodD0cOLr9D1f4YakufZQWY52Qf4O8fYQfDnSxEXMfjThBowa7sDIXTQ'
               className='inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amber-500 hover:bg-amber-400 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25'
             >
               <FiMail className='w-5 h-5' />
-              Написать
+              Написать в MAX
             </a>
             <a 
               href='tel:89528917321'

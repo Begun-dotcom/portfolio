@@ -57,7 +57,7 @@ function About() {
 
   return (
     <section ref={ref} id="about" className='py-16 md:py-24 bg-sushi-primary'>
-      <div className='max-w-[1800px] mx-auto px-5 md:px-6 lg:px-10'>
+      <div className='max-w-450 mx-auto px-5 md:px-6 lg:px-10'>
         
         {/* Заголовок */}
         <motion.div
@@ -89,7 +89,7 @@ function About() {
               key={index}
               variants={itemVariants}
               whileHover={{ y: -5, scale: 1.02 }}
-              className='bg-gradient-to-br from-sushi-accent/10 to-sushi-accent/5 rounded-xl md:rounded-2xl p-5 md:p-6 text-center border border-sushi-accent/20 hover:border-sushi-accent/50 transition-all duration-300'
+              className='bg-linear-to-br from-sushi-accent/10 to-sushi-accent/5 rounded-xl md:rounded-2xl p-5 md:p-6 text-center border border-sushi-accent/20 hover:border-sushi-accent/50 transition-all duration-300'
             >
               <div className='text-sushi-accent mb-3 md:mb-4 flex justify-center'>
                 {feature.icon}
@@ -158,7 +158,7 @@ function About() {
             </div>
             
             {/* Иконка/цифра */}
-            <div className='flex-shrink-0'>
+            <div className='shrink-0'>
               <div className='w-20 h-20 md:w-24 md:h-24 bg-sushi-accent/10 rounded-full flex items-center justify-center border border-sushi-accent/30'>
                 <span className='text-4xl md:text-5xl'>🍣</span>
               </div>

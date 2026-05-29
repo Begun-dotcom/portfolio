@@ -17,7 +17,8 @@ function Hero() {
       
        <div className='absolute inset-0'>
         <img src = "/main_page.jpeg" alt="main" className="w-full h-full object-cover" loading="eager"/>
-        <div className='absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/10 to-transparent z-10' />
+         <div className='absolute inset-0 bg-black/40' />
+       {/*  <div className='absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/10 to-transparent z-10' /> */}
         {/* <div className='absolute inset-0 bg-gradient-to-r from-[#111827] via-transparent to-transparent z-10' /> */}
       </div>
       <div className='absolute z-20 text-center px-4 max-w-4xl mx-auto'>
@@ -49,7 +50,7 @@ function Hero() {
           </p>
 
   {/* Описание */}
-          <p className='text-base md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 md:mb-14 leading-relaxed'>
+          <p className='pt-8 text-base md:text-xl text-gray-400 max-w-2xl mx-auto  mb-12 md:mb-14 leading-relaxed'>
             Создаю современные веб-приложения от идеи до деплоя. 
             Frontend на React + Tailwind, Backend на Python + FastAPI. 
             Разворачиваю на сервере с Docker и Nginx.

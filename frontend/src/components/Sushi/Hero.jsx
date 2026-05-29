@@ -1,26 +1,36 @@
-import React from 'react';
+import {React, useRef } from 'react'
+import { motion, useInView } from 'framer-motion';
 
 function Hero() {
+  const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.2 });
+
   const scrollTo = (href) => {
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
   return (
-    <section id="hero" className='relative min-h-screen flex items-center overflow-hidden'>
+    <section ref={ref} id="hero" className='relative min-h-screen flex items-center overflow-hidden'>
       
       {/* Фоновое изображение */}
       <div className='absolute inset-0'>
         <img 
-          src="/sushi_hero.jpg" 
+          src="/sushi/sushi_hero.jpg" 
           alt="Премиум суши роллы"
           className='w-full h-full object-cover'
           fetchPriority="high"
         />
         {/* Затемнение для читаемости текста */}
-        <div className='absolute inset-0 bg-gradient-to-r from-sushi-primary/80 via-sushi-primary/40 to-transparent' />
+        <div className='absolute inset-0 bg-linear-to-r from-sushi-primary/80 via-sushi-primary/40 to-transparent' />
       </div>
       
       {/* Контент */}
-      <div className='relative z-10 max-w-[1800px] mx-auto px-6 lg:px-10 w-full'>
+      <div className='relative z-10 max-w-450 mx-auto px-6 lg:px-10 w-full'>
+        <motion.div
+                    initial={{ opacity: 0, x: -70 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+          
+        >
         <div className='max-w-2xl'>
           {/* Золотой акцент */}
           <div className='inline-block mb-4'>
@@ -52,6 +62,7 @@ function Hero() {
             </button>
           </div>
         </div>
+        </motion.div>
       </div>
       
       {/* Стрелка вниз */}

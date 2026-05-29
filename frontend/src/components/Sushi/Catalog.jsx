@@ -12,6 +12,8 @@ import {
   FiNavigation
 } from 'react-icons/fi';
 
+
+
 const rolls = [
   {
     id: 1,
@@ -21,7 +23,7 @@ const rolls = [
     price: 550,
     weight: '220г',
     rating: 4.9,
-    image: '/roll-philadelphia.jpg',
+    image: '/sushi/1.jpg',
     badge: 'Хит'
   },
   {
@@ -32,7 +34,7 @@ const rolls = [
     price: 520,
     weight: '210г',
     rating: 4.8,
-    image: '/roll-california.jpg',
+    image: '/sushi/2.jpg',
     badge: 'Популярный'
   },
   {
@@ -43,7 +45,7 @@ const rolls = [
     price: 590,
     weight: '230г',
     rating: 4.9,
-    image: '/roll-baked.jpg',
+    image: '/sushi/3.jpg',
     badge: 'Горячий'
   },
   {
@@ -54,7 +56,7 @@ const rolls = [
     price: 620,
     weight: '210г',
     rating: 4.9,
-    image: '/roll-unagi.jpg',
+    image: '/sushi/4.jpg',
     badge: 'Топ'
   },
   {
@@ -65,7 +67,7 @@ const rolls = [
     price: 1490,
     weight: '650г',
     rating: 5.0,
-    image: '/set-samurai.jpg',
+    image: '/sushi/3.jpg',
     badge: 'Эконом'
   },
   {
@@ -76,7 +78,7 @@ const rolls = [
     price: 580,
     weight: '210г',
     rating: 4.7,
-    image: '/roll-spicy.jpg',
+    image: '/sushi/1.jpg',
     badge: null
   },
   {
@@ -87,7 +89,7 @@ const rolls = [
     price: 640,
     weight: '220г',
     rating: 4.9,
-    image: '/roll-tempura.jpg',
+    image: '/sushi/4.jpg',
     badge: 'Хит'
   },
   {
@@ -98,7 +100,7 @@ const rolls = [
     price: 1290,
     weight: '520г',
     rating: 4.9,
-    image: '/set-philadelphia.jpg',
+    image: '/sushi/2.jpg',
     badge: 'Популярный'
   },
 ];
@@ -111,7 +113,7 @@ const categories = [
 ];
 
 function Catalog() {
-
+  
   const scrollTo = (href) => {
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   }; 
@@ -136,7 +138,7 @@ function Catalog() {
 
   return (
     <section ref={ref} id="catalog" className='min-h-screen py-20 md:py-28 bg-sushi-dark'>
-      <div className='max-w-[1800px] mx-auto px-6 lg:px-10'>
+      <div className='max-w-450 mx-auto px-6 lg:px-10'>
         
         {/* Заголовок */}
         <motion.div
@@ -212,7 +214,7 @@ function Catalog() {
                 </div>
 
                 {/* Информация */}
-                <div className='p-5 flex flex-col flex-grow'>
+                <div className='p-5 flex flex-col grow'>
                   <div className='flex items-center justify-between mb-2'>
                     <h3 className='text-white font-bold text-lg group-hover:text-sushi-accent transition-colors'>
                       {roll.name}
@@ -223,7 +225,7 @@ function Catalog() {
                     </div>
                   </div>
                   
-                  <p className='text-sushi-text-light text-sm mb-4 leading-relaxed flex-grow'>
+                  <p className='text-sushi-text-light text-sm mb-4 leading-relaxed grow'>
                     {roll.composition}
                   </p>
                   
@@ -234,21 +236,19 @@ function Catalog() {
                       </span>
                     </div>
                     
-                    <motion.a
-                       
-                        href={`https://t.me/dsorokin070/?text=🍣 Хочу заказать: ${encodeURIComponent(roll.name)}
-                        Цена: ${roll.price}₽
-                        Состав: ${roll.composition}`}
-                        target="_blank"
-                        className='px-4 py-2 bg-sushi-accent hover:bg-sushi-accent-light text-black font-bold rounded-full flex items-center gap-2'
-                      >
-                        <FiSend className='w-4 h-4' />
-                        Заказать в Telegram
+                    <motion.button
+                            onClick={() => scrollTo('#contacts')}
+                            className='px-4 py-2 bg-sushi-accent hover:bg-sushi-accent-light text-black font-bold rounded-full flex items-center gap-2'
+                          >
+                            <FiSend className='w-4 h-4' />
+                            Заказать
+                          </motion.button>
 
-                    </motion.a>
+                          
+                        
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
             </motion.div>
           ))}
         </div>
@@ -261,3 +261,17 @@ function Catalog() {
 }
 
 export default Catalog;
+
+{/* <button
+  onClick={() => {
+    navigator.clipboard.writeText(`🍣 Хочу заказать: ${roll.name}`);
+    alert('Название товара скопировано! Вставьте его в чат с менеджером в MAX.');
+  }}
+  className="..."
+>
+  📋 Заказать в MAX
+</button> */}
+
+/* href={`https://t.me/dsorokin070/?text=🍣 Хочу заказать: ${encodeURIComponent(roll.name)} */
+                       /* href={`https://t.me/dsorokin070/?text=🍣 Хочу заказать: ${encodeURIComponent(roll.name)} */
+                        /* href="https://t.me/dsorokin070" */

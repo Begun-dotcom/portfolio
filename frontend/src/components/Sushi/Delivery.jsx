@@ -61,7 +61,7 @@ function Delivery() {
 
   return (
     <section ref={ref} id="delivery" className='py-16 md:py-24 bg-sushi-primary'>
-      <div className='max-w-[1800px] mx-auto px-5 md:px-6 lg:px-10'>
+      <div className='max-w-450 mx-auto px-5 md:px-6 lg:px-10'>
         
         {/* Заголовок */}
         <motion.div
@@ -88,7 +88,7 @@ function Delivery() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className='relative mb-12 md:mb-16 rounded-2xl md:rounded-3xl overflow-hidden border border-sushi-accent/20'
         >
-          <div className='relative h-64 md:h-80 lg:h-96 bg-gradient-to-br from-sushi-dark to-sushi-primary'>
+          <div className='relative h-64 md:h-80 lg:h-96 bg-linear-to-br from-sushi-dark to-sushi-primary'>
             {/* Карта-заглушка — замените на реальную карту/изображение */}
             <iframe 
                 src="https://yandex.ru/map-widget/v1/?ll=37.617,55.755&z=12&pt=37.617,55.755,flag&l=map&size=300,200"
@@ -120,7 +120,7 @@ function Delivery() {
               key={index}
               variants={itemVariants}
               whileHover={{ y: -5, scale: 1.02 }}
-              className='bg-gradient-to-br from-sushi-accent/10 to-sushi-accent/5 rounded-xl md:rounded-2xl p-4 md:p-6 text-center border border-sushi-accent/20 hover:border-sushi-accent/50 transition-all duration-300'
+              className='bg-linear-to-br from-sushi-accent/10 to-sushi-accent/5 rounded-xl md:rounded-2xl p-4 md:p-6 text-center border border-sushi-accent/20 hover:border-sushi-accent/50 transition-all duration-300'
             >
               <div className='text-sushi-accent mb-2 md:mb-4 flex justify-center'>
                 {item.icon}

@@ -11,6 +11,8 @@ import {
   FiNavigation
 } from 'react-icons/fi';
 
+
+
 function Contacts() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
@@ -43,8 +45,8 @@ function Contacts() {
   ];
 
   const messengers = [
-    { icon: <FiSend className='w-5 h-5' />, name: 'Telegram', username: '@sushi_premium', color: 'hover:bg-[#0088cc]' },
-    { icon: <FiMessageCircle className='w-5 h-5' />, name: 'MAX', username: 'https://max.ru/u/f9LHodD0cOLr9D1f4YakufZQWY52Qf4O8fYQfDnSxEXMfjThBowa7sDIXTQ', color: 'hover:bg-[#00c3ff]' },
+    { icon: <FiSend className='w-5 h-5' />, name: 'Telegram', username: 'https://t.me/', color: 'hover:bg-[#0088cc]' },
+    { icon: <FiMessageCircle className='w-5 h-5' />, name: 'MAX', username: 'https://max.ru/', color: 'hover:bg-[#00c3ff]' },
     { icon: <FiInstagram className='w-5 h-5' />, name: 'Instagram', username: '@sushi_premium', color: 'hover:bg-[#e4405f]' },
   ];
 
@@ -56,7 +58,7 @@ function Contacts() {
 
   return (
     <section ref={ref} id="contacts" className='py-16 md:py-24 bg-sushi-primary'>
-      <div className='max-w-[1800px] mx-auto px-5 md:px-6 lg:px-10'>
+      <div className='max-w-450 mx-auto px-5 md:px-6 lg:px-10'>
         
         {/* Заголовок */}
         <motion.div
@@ -91,7 +93,7 @@ function Contacts() {
                 whileHover={{ x: 5 }}
                 className='flex gap-4 md:gap-5 p-4 md:p-5 bg-sushi-dark rounded-xl md:rounded-2xl border border-sushi-accent/20 hover:border-sushi-accent/40 transition-all duration-300'
               >
-                <div className='w-10 h-10 md:w-12 md:h-12 bg-sushi-accent/10 rounded-full flex items-center justify-center text-sushi-accent flex-shrink-0'>
+                <div className='w-10 h-10 md:w-12 md:h-12 bg-sushi-accent/10 rounded-full flex items-center justify-center text-sushi-accent shrink-0'>
                   {item.icon}
                 </div>
                 <div>
@@ -140,7 +142,7 @@ function Contacts() {
           >
             {/* Карта */}
             <div className='bg-sushi-dark rounded-xl md:rounded-2xl overflow-hidden border border-sushi-accent/20'>
-              <div className='relative h-64 md:h-80 bg-gradient-to-br from-sushi-dark to-sushi-primary flex flex-col items-center justify-center'>
+              <div className='relative h-64 md:h-80 bg-linear-to-br from-sushi-dark to-sushi-primary flex flex-col items-center justify-center'>
                 {/* Карта-заглушка */}
                 <iframe 
                 src="https://yandex.ru/map-widget/v1/?ll=37.617,55.755&z=12&pt=37.617,55.755,flag&l=map&size=300,200"
@@ -196,7 +198,7 @@ function Contacts() {
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               {/* Позвонить */}
               <a 
-                href='tel:+78003000600' 
+                href='tel:+70000000000' 
                 className='inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-sushi-accent hover:bg-sushi-accent-light text-black font-bold rounded-full transition-all duration-300 hover:scale-105 text-center'
               >
                 <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -207,11 +209,11 @@ function Contacts() {
               
               {/* Написать */}
               <a 
-                href='https://wa.me/78003000600' 
+                href='https://max.ru/' 
                 target='_blank'
                 className='inline-flex items-center justify-center gap-2 px-6 py-3.5 border-2 border-sushi-accent text-sushi-accent hover:bg-sushi-accent hover:text-black rounded-full transition-all duration-300 hover:scale-105 text-center'
               ><FiMail className='w-5 h-5' />
-              Написать
+              Написать в MAX
               </a>
             </div>
         </motion.div>

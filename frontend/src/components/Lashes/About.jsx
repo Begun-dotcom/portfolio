@@ -1,132 +1,192 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FiCheck, FiHeart, FiStar, FiArrowRight } from 'react-icons/fi';
+import { FiAward, FiHeart, FiUsers, FiThumbsUp, FiCheckCircle, FiClock } from 'react-icons/fi';
 
-function About() {
+function LashesAbout() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const features = [
-    'Сертифицированные мастера с опытом от 5 лет',
-    'Стерилизация инструментов после каждого клиента',
-    'Только премиальные материалы (CND, OPI, Bio Sculpture)',
-    'Уютная атмосфера и чай/кофе в подарок'
+    {
+      icon: <FiAward className='w-7 h-7 md:w-8 md:h-8' />,
+      title: 'Сертифицированные мастера',
+      desc: 'Опыт работы от 5 лет. Регулярное повышение квалификации.',
+    },
+    {
+      icon: <FiHeart className='w-7 h-7 md:w-8 md:h-8' />,
+      title: 'Гипоаллергенные материалы',
+      desc: 'Используем только качественные клеи и ресницы от проверенных брендов.',
+    },
+    {
+      icon: <FiUsers className='w-7 h-7 md:w-8 md:h-8' />,
+      title: 'Индивидуальный подход',
+      desc: 'Подбираем идеальный объем и эффект под форму ваших глаз.',
+    },
+    {
+      icon: <FiThumbsUp className='w-7 h-7 md:w-8 md:h-8' />,
+      title: '2000+ довольных клиентов',
+      desc: 'Возвращаются снова и рекомендуют нас подругам.',
+    },
   ];
 
+  const stats = [
+    { value: '5+', label: 'лет опыта', icon: '⭐' },
+    { value: '8', label: 'мастеров', icon: '👩‍🎨' },
+    { value: '2000+', label: 'клиентов', icon: '💖' },
+    { value: '100%', label: 'стерильность', icon: '✨' },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
-    <section ref={ref} id="about" className='min-h-screen py-20 md:py-28 bg- bg-[#fde2e2] overflow-hidden'>
+    <section ref={ref} id="about" className='py-20 md:py-28 bg-white'>
       <div className='max-w-[1800px] mx-auto px-6 lg:px-10'>
         
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center'>
-          
-          {/* Левая часть - ФОТО ХОЗЯЙКИ */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className='relative'
-          >
-            <div className='relative rounded-3xl overflow-hidden shadow-2xl shadow-rose-200/50'>
-              {/* Фото */}
-              <img 
-                src="/dor_for_resn.jpg" 
-                alt="Основательница студии Анна" 
-                className='w-full h-auto object-cover'
-                fetchPriority="low"
-                loading="lazy"
-              />
-              
-              {/* Декоративный элемент */}
-              <div className='absolute -bottom-5 -right-5 w-32 h-32 bg-rose-500 rounded-full -z-10 opacity-20' />
-              <div className='absolute -top-5 -left-5 w-24 h-24 bg-amber-400 rounded-full -z-10 opacity-20' />
-            </div>
-            
-            {/* Плашка с именем */}
+        {/* Заголовок */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className='text-center mb-12'
+        >
+          <span className='text-lashes-accent text-sm font-medium tracking-wider uppercase mb-2 block'>
+            О НАС
+          </span>
+          <h2 className='text-4xl md:text-5xl font-bold text-lashes-primary mb-4'>
+            Создаём красоту <span className='text-lashes-accent'>с душой</span>
+          </h2>
+          <p className='text-lashes-text-light max-w-2xl mx-auto'>
+            Профессиональная студия наращивания ресниц с заботой о вашем комфорте и здоровье
+          </p>
+        </motion.div>
+
+        {/* Преимущества */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16'
+        >
+          {features.map((feature, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className='absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-xl p-4 text-center min-w-[200px]'
+              key={index}
+              variants={itemVariants}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className='bg-lashes-bg-light rounded-2xl p-6 text-center border border-lashes-accent/10 hover:border-lashes-accent/30 transition-all duration-300'
             >
-              <p className='text-rose-500 font-bold text-xl'>Анна Сорокина</p>
-              <p className='text-gray-500 text-xs'>Основатель студии</p>
-              <div className='flex items-center justify-center gap-1 mt-1'>
-                <FiStar className='w-3 h-3 text-amber-400 fill-amber-400' />
-                <FiStar className='w-3 h-3 text-amber-400 fill-amber-400' />
-                <FiStar className='w-3 h-3 text-amber-400 fill-amber-400' />
-                <FiStar className='w-3 h-3 text-amber-400 fill-amber-400' />
-                <FiStar className='w-3 h-3 text-amber-400 fill-amber-400' />
+              <div className='text-lashes-accent mb-4 flex justify-center'>
+                {feature.icon}
               </div>
+              <h3 className='text-lashes-primary font-bold text-lg mb-2'>{feature.title}</h3>
+              <p className='text-lashes-text-light text-sm'>{feature.desc}</p>
             </motion.div>
-          </motion.div>
-          
-          {/* Правая часть - ТЕКСТ */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className='space-y-6'
-          >
-            {/* Бейдж */}
-            <div className='inline-block'>
-              <span className='px-4 py-1 bg-rose-100 text-rose-500 rounded-full text-sm font-medium tracking-wide'>
-                КТО МЫ
-              </span>
-            </div>
-            
-            {/* Заголовок */}
-            <h2 className='text-3xl md:text-4xl lg:text-5xl font-serif italic text-gray-900'>
-              Создаём красоту 
-              <br />
-              с <span className='text-rose-500'>любовью</span> и заботой
-            </h2>
-            
-            {/* Описание */}
-            <p className='text-gray-500 leading-relaxed'>
-              Студия «Bloom Nails» — это пространство, где каждая девушка чувствует себя особенной. 
-              Мы открылись в 2018 году с одной целью — делать женские руки ухоженными, 
-              а настроение — прекрасным.
-            </p>
-            
-            <p className='text-gray-500 leading-relaxed'>
-              Анна, основательница студии, сама прошла путь от клиента до мастера. 
-              Она точно знает, как важно внимание к деталям, стерильность и индивидуальный подход. 
-              Именно поэтому в нашей студии работают только проверенные специалисты.
-            </p>
-            
-            {/* Преимущества списком */}
-            <div className='space-y-3 pt-4'>
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                  className='flex items-center gap-3'
-                >
-                  <div className='w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center flex-shrink-0'>
-                    <FiCheck className='w-3 h-3 text-rose-500' />
-                  </div>
-                  <span className='text-gray-700 text-sm'>{feature}</span>
-                </motion.div>
-              ))}
-            </div>
-            
-            {/* Кнопка */}
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className='group mt-6 px-8 py-3.5 bg-gray-900 hover:bg-rose-500 text-white font-medium rounded-full transition-all duration-300 inline-flex items-center gap-2'
+          ))}
+        </motion.div>
+
+        {/* Статистика */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className='grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16'
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={isInView ? { scale: 1, opacity: 1 } : {}}
+              transition={{ delay: 0.4 + index * 0.1, duration: 0.4 }}
+              className='text-center p-6 bg-lashes-bg-light rounded-2xl border border-lashes-accent/10'
             >
-              Записаться на маникюр
-              <FiArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform' />
-            </motion.button>
-          </motion.div>
-          
-        </div>
+              <div className='text-3xl mb-2'>{stat.icon}</div>
+              <div className='text-3xl md:text-4xl font-bold text-lashes-accent mb-1'>
+                {stat.value}
+              </div>
+              <p className='text-lashes-text-light text-sm'>{stat.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Блок с ценностями и фото */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6, duration: 0.5 }}
+          className='grid md:grid-cols-2 gap-8 items-center'
+        >
+          {/* Левая часть — текст */}
+          <div className='space-y-4'>
+            <h3 className='text-2xl md:text-3xl font-bold text-lashes-primary'>
+              Почему девушки <span className='text-lashes-accent'>выбирают нас</span>
+            </h3>
+            <p className='text-lashes-text-light leading-relaxed'>
+              Наша студия — это пространство, где каждая клиентка чувствует себя особенной. 
+              Мы уделяем внимание каждой детали: от уютной атмосферы до стерильности инструментов.
+            </p>
+            <div className='space-y-3 pt-2'>
+              <div className='flex items-center gap-3'>
+                <FiCheckCircle className='w-5 h-5 text-lashes-accent flex-shrink-0' />
+                <span className='text-lashes-primary text-sm'>Бесплатная консультация специалиста</span>
+              </div>
+              <div className='flex items-center gap-3'>
+                <FiCheckCircle className='w-5 h-5 text-lashes-accent flex-shrink-0' />
+                <span className='text-lashes-primary text-sm'>Гарантия на работу 2 недели</span>
+              </div>
+              <div className='flex items-center gap-3'>
+                <FiCheckCircle className='w-5 h-5 text-lashes-accent flex-shrink-0' />
+                <span className='text-lashes-primary text-sm'>Удобное расположение в центре</span>
+              </div>
+              <div className='flex items-center gap-3'>
+                <FiClock className='w-5 h-5 text-lashes-accent flex-shrink-0' />
+                <span className='text-lashes-primary text-sm'>Работаем ежедневно с 10:00 до 21:00</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Правая часть — фото студии */}
+          <div className='relative rounded-2xl overflow-hidden shadow-xl'>
+            <img 
+              src="/lashes/show.jpg" 
+              alt="Интерьер студии ресниц"
+              className='w-full h-100 object-cover'
+            />
+            <div className='absolute inset-0 bg-gradient-to-t from-lashes-primary/50 to-transparent flex items-end'>
+              <div className='p-5 text-white'>
+                <p className='font-bold text-lg'>Уютная атмосфера</p>
+                <p className='text-sm text-white/80'>Интерьер создан для вашего комфорта</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Дополнительный блок */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.8, duration: 0.5 }}
+          className='mt-12 p-6 bg-lashes-accent/5 rounded-2xl border border-lashes-accent/10 text-center'
+        >
+          <p className='text-lashes-primary text-lg font-medium italic'>
+            "Красота требует не жертв, а профессионалов. 
+            Доверьте свои ресницы лучшим мастерам города."
+          </p>
+          <p className='text-lashes-accent text-sm mt-2'>— Основатель студии, Анна</p>
+        </motion.div>
+
       </div>
     </section>
   );
 }
 
-export default About;
+export default LashesAbout;

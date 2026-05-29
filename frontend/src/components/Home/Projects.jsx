@@ -22,7 +22,7 @@ function Projects() {
       description: 'Интернет-магазин автозапчастей. Каталог товаров, админ-панель, деплой на сервер с Docker и Nginx, HTTPS.',
       stack: ['React', 'Tailwind', 'FastAPI', 'PostgreSQL', 'Docker', 'Nginx'],
       image: '/service_main.webp',
-      demo: '/продеталь70.рф',
+      demo: 'https://продеталь70.рф',
       github: null, // или ссылка на GitHub
     },
     
@@ -31,7 +31,7 @@ function Projects() {
       title: 'Лендинг-Lash studio',
       description: 'Одностраничный сайт-визитка для презентации навыков и проектов.',
       stack: ['React', 'Tailwind'],
-      image:'/resn.jpg',
+      image:'/lashes/hero.jpg',
       demo: '/projects/lashes',
       github: null,
     },
@@ -41,7 +41,7 @@ function Projects() {
       title: 'Лендинг-sushi',
       description: 'Одностраничный сайт-визитка для презентации навыков и проектов.',
       stack: ['React', 'Tailwind'],
-      image: '/sushi.webp',
+      image: '/sushi/sushi_hero.jpg',
       demo: '/projects/sushi',
       github: null,
     },
@@ -102,8 +102,13 @@ function Projects() {
               {/* Изображение или заглушка */}
               <div className='h-48 bg-white/2 flex items-center justify-center overflow-hidden'>
                 {project.image ? (
-                  <img src={project.image} alt={project.title} 
-                       className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500' />
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500'
+                    loading="lazy"
+                    decoding="async"
+                  />
                 ) : (
                   <div className='text-center text-gray-600'>
                     <svg className='w-12 h-12 mx-auto mb-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>

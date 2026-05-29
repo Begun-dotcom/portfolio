@@ -8,7 +8,7 @@ import Container from '../components/General/Container'
 
 function Home() {
   return (
-    <div className='bg-[#111827] min-h-screen text-white'>
+    <div className='relative bg-gradient-to-t from-gray-900 via-gray-900/80 to-violet-500/30 min-h-screen text-white'>
       <header>
         <Navbar />
       </header>
