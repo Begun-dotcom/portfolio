@@ -36,7 +36,7 @@ function Navbar() {
             <div className='w-full px-4 h-full flex justify-between items-center'>
                 <a href="#hero" 
                     className='text-amber-500 font-bold text-xl hover:text-amber-400 transition-all duration-300 hover:scale-105 inline-block'>
-                    ТвоёИмя<span className='text-white'>.dev</span>
+                    SorokinDev<span className='text-white'>.ru</span>
                 </a>
 
                     {/* Десктопное меню */}
